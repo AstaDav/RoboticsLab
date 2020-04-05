@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+
+<robot name="sliding_kuka" xmlns:xacro="http://wiki.ros.org/xacro">
+
+<xacro:include filename="$(find kuka_robot_description)/urdf/sliding_kuka_macro.xacro"/>
+
+
+<link name="slider">
+	<visual>
+		<geometry>
+			<box size="0.6 0.3 0.05"/>
+		</geometry>
+       		<origin rpy="0 0 0" xyz="0 0 0"/>
+       </visual>
+</link>
+
+<joint name="sliding_joint" type="prismatic">
+    <parent link="slider"/>
+    <child link="base_link"/>
+       		<origin rpy="0 0 0" xyz="0 0 0.1"/>
+    <limit effort="300" velocity="0.1" lower="-1" upper="1"/>
+    <dynamics damping="50" friction="1"/>
+</joint>
+
+<xacro:whole_kuka_lw />
+
+	
+	
+</robot>

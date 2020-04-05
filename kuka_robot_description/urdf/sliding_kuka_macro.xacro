@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<robot  xmlns:xacro="http://wiki.ros.org/xacro">
+
+	<xacro:macro name="whole_kuka_lw" > 
+
+
+<xacro:include filename="$(find kuka_robot_description)/urdf/kuka_lw_macro.xacro"/>
+
+	<xacro:base_link_macro 
+		base_link_name="base_link">
+	</xacro:base_link_macro>
+
+	<xacro:general_joint 
+		name="shoulder_joint_1" 
+		type="revolute" 
+		parent="base_link" 
+		child="shoulder_link_1">
+  		<origin xyz="0 0 0.2"/>
+  		<axis xyz="0 0 1"/>
+	</xacro:general_joint>
+
+	<xacro:base_link_macro 
+		base_link_name="shoulder_link_1">
+	</xacro:base_link_macro>
+
+	<xacro:general_joint 
+		name="shoulder_joint_2" 
+		type="revolute" 
+		parent="shoulder_link_1" 
+		child="shoulder_link_2">
+  		<origin xyz="0 0 0.2" rpy="1.57 0 0 "/>
+  		<axis xyz="0 0 1"/>
+	</xacro:general_joint>
+
+	<xacro:base_link_macro 
+		base_link_name="shoulder_link_2">
+	</xacro:base_link_macro>
+	
+	<xacro:general_joint 
+		name="shoulder_joint_3" 
+		type="revolute" 
+		parent="shoulder_link_2" 
+		child="shoulder_link_3">
+  		<origin xyz="0 0 0.15" rpy="-1.57 0 0 "/>
+  		<axis xyz="0 0 1"/>
+	</xacro:general_joint>
+
+	<xacro:base_link_macro 
+		base_link_name="shoulder_link_3">
+	</xacro:base_link_macro>
+	
+	<xacro:general_joint 
+		name="elbow_joint_1" 
+		type="revolute" 
+		parent="shoulder_link_3" 
+		child="elbow_link">
+  		<origin xyz="0 0 0.2" rpy="-1.57 0 0 "/>
+  		<axis xyz="0 0 1"/>
+	</xacro:general_joint>
+	
+	<xacro:base_link_macro 
+		base_link_name="elbow_link">
+	</xacro:base_link_macro>
+	
+	<xacro:general_joint 
+		name="wrist_joint_1" 
+		type="revolute" 
+		parent="elbow_link" 
+		child="wrist_link_1">
+  		<origin xyz="0 0 0.3" rpy="1.57 0 0 "/>
+  		<axis xyz="0 0 1"/>
+	</xacro:general_joint>
+	
+	<xacro:base_link_macro 
+		base_link_name="wrist_link_1">
+	</xacro:base_link_macro>
+		
+	<xacro:general_joint 
+		name="wrist_joint_2" 
+		type="revolute" 
+		parent="wrist_link_1" 
+		child="wrist_link_2">
+  		<origin xyz="0 0 0.2" rpy="1.57 0 0 "/>
+  		<axis xyz="0 0 1"/>
+	</xacro:general_joint>
+	
+	<xacro:base_link_macro 
+		base_link_name="wrist_link_2">
+	</xacro:base_link_macro>
+	
+	<xacro:general_joint 
+		name="wrist_joint_3" 
+		type="revolute" 
+		parent="wrist_link_2" 
+		child="wrist_link_3">
+  		<origin xyz="0 0 0.15" rpy="-1.57 0 0 "/>
+  		<axis xyz="0 0 1"/>
+	</xacro:general_joint>
+	
+	<xacro:base_link_macro 
+		base_link_name="wrist_link_3">
+	</xacro:base_link_macro>
+	</xacro:macro>
+</robot>	
+
+
